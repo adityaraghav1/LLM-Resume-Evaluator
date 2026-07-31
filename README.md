@@ -76,7 +76,7 @@ python resume_parser.py
 
 ## Sample Output
 
-![Terminal Output](screenshots/terminal_output.png)
+![Terminal Output](screenshot/terminal_output.png)
 
 ---
 
