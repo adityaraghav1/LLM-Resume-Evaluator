@@ -4,6 +4,10 @@ LLM-powered resume screening and candidate ranking. Upload resumes (PDF/DOCX)
 and a job description, and get each candidate scored, matched against
 required skills, and given an AI-written verdict — all in a Streamlit UI.
 
+## Live Demo
+
+**[Try it here → ai-resume--evaluator.streamlit.app](https://ai-resume--evaluator.streamlit.app/)**
+
 ## How it works
 
 1. `parser.py` extracts raw text from uploaded PDF/DOCX resumes.
