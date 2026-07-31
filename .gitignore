@@ -1,16 +1,21 @@
-# Virtual Environment
-.venv/
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
 
-# Environment Variables
+# Virtual environments
+.venv
+
+# Environment variables (contains secrets - never commit)
 .env
 
-# Python Cache
-__pycache__/
-*.pyc
+# Local test resumes (may contain personal data)
+resumes/*.pdf
+resumes/*.docx
+!resumes/.gitkeep
 
-# VS Code
-.vscode/
-
-# OS Files
+# OS files
 .DS_Store
-Thumbs.db
