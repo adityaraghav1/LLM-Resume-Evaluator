@@ -58,15 +58,18 @@ python test_pipeline.py
 ## Project structure
 
 ```
-.
-├── app.py              
-├── llm.py               
-├── models.py             
-├── parser.py             
-├── resume_parser.py        
-├── test_pipeline.py         
-├── resumes/                
+AI-Resume-Evaluator/
+├── app.py
+├── llm.py
+├── models.py
+├── parser.py
+├── resume_parser.py
+├── test_pipeline.py
 ├── requirements.txt
 ├── pyproject.toml
-└── .env.example
+├── .gitignore
+├── .env.example
+├── README.md
+└── resumes/
+    └── .gitkeep
 ```
