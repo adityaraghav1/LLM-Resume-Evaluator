@@ -6,7 +6,7 @@ required skills, and given an AI-written verdict — all in a Streamlit UI.
 
 ## Live Demo
 
-**[Try it here → ai-resume--evaluator.streamlit.app](https://ai-resume--evaluator.streamlit.app/)**
+[Try it here → ai-resume--evaluator.streamlit.app]**(https://ai-resume--evaluator.streamlit.app/)**
 
 ## How it works
 
