@@ -1,90 +1,72 @@
-# LLM-Resume-Evaluator (CLI)
-An AI-powered Resume Evaluator built using **Python** and **Groq LLM**. The application parses PDF and DOCX resumes, analyzes them against a job description, and ranks candidates based on their overall suitability.
----
+# AI Resume Evaluator
 
-## Features
-- 📄 Parse PDF and DOCX resumes
-- 🤖 Analyze resumes using Groq LLM
-- 📋 Extract structured candidate information
-- 🎯 Compare resumes with a given job description
-- 📊 Generate an overall match score
-- 🏆 Rank candidates from best to least suitable
+LLM-powered resume screening and candidate ranking. Upload resumes (PDF/DOCX)
+and a job description, and get each candidate scored, matched against
+required skills, and given an AI-written verdict — all in a Streamlit UI.
 
----
+## How it works
 
-## Tech Stack
+1. `parser.py` extracts raw text from uploaded PDF/DOCX resumes.
+2. `llm.py` calls Groq (`llama-3.3-70b-versatile`) to:
+   - parse the job description into structured fields
+   - parse each resume into structured fields
+   - score each resume against the job description
+3. `resume_parser.py` runs this pipeline across every resume in a folder
+   and returns candidates sorted by score.
+4. `app.py` is the Streamlit front end that ties it all together.
 
-- Python 3
-- Groq API
-- Pydantic
-- PyPDF
-- python-docx
-- python-dotenv
+## Setup
 
----
+**Requirements:** Python 3.11+, a free [Groq API key](https://console.groq.com/keys)
 
-## Project Structure
-
-```text
-LLM-Resume-Evaluator/
-│
-├── resumes/
-├── screenshots/
-├── resume_parser.py
-├── requirements.txt
-├── pyproject.toml
-├── .env.example
-├── .gitignore
-└── README.md
-```
-
----
-
-## Getting Started
-
-### 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/LLM-Resume-Evaluator.git
-cd LLM-Resume-Evaluator
-```
-### 2. Create a virtual environment
-```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+
 python -m venv .venv
-```
-### 3. Activate the virtual environment
-**Windows**
-```bash
-.venv\Scripts\activate
-```
-### 4. Install dependencies
-```bash
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+
 pip install -r requirements.txt
 ```
-### 5. Create a `.env` file
-```env
-GROQ_API_KEY=your_api_key_here
-```
-### 6. Add resumes
-Place the resumes you want to evaluate inside the `resumes/` folder.
 
-### 7. Run the application
+Copy `.env.example` to `.env` and add your key:
+
 ```bash
-python resume_parser.py
+cp .env.example .env
 ```
 
----
+```
+GROQ_API_KEY=your_groq_api_key_here
+```
 
-## Sample Output
+## Run locally
 
-![Terminal Output](screenshot/terminal_output.png)
+```bash
+streamlit run app.py
+```
 
----
+Open the URL Streamlit prints (usually `http://localhost:8501`).
 
-## Future Improvements
+## Testing the pipeline directly
 
-- Streamlit-based Web UI
-- Resume upload interface
-- Downloadable evaluation reports
-- Support for multiple job descriptions
+Drop a sample resume at `resumes/resume1.pdf`, then:
 
----
+```bash
+python test_pipeline.py
+```
+
+## Project structure
+
+```
+.
+├── app.py              
+├── llm.py               
+├── models.py             
+├── parser.py             
+├── resume_parser.py        
+├── test_pipeline.py         
+├── resumes/                
+├── requirements.txt
+├── pyproject.toml
+└── .env.example
+```
