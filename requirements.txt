@@ -1,5 +1,7 @@
-groq
-python-dotenv
-pydantic
-pypdf
-python-docx
+streamlit>=1.38.0
+pandas>=2.2.0
+pydantic>=2.7.0
+pypdf>=4.2.0
+python-docx>=1.1.0
+python-dotenv>=1.0.1
+groq>=0.11.0
